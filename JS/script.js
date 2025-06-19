@@ -47,15 +47,14 @@ allLinks.forEach(function (link) {
       });
 
     // Scroll to other links
-    if (href === "#" && href.startsWith("#")) {
+    if (href !== "#" && href.startsWith("#")) {
       const SelectionEL = document.querySelector(href);
       SelectionEL.scrollIntoView({
         behavior: "smooth",
       });
-      // console.log(SelectionEL);
-      //close mobile navigtion
-      if (link.classList.contains("main-nav-link"));
-      headerEl.classList.toggle("nav-open");
+      //close mobile navigation
+      if (link.classList.contains("main-nav-link"))
+        headerEl.classList.toggle("nav-open");
     }
   });
 });
@@ -70,11 +69,11 @@ const obs = new IntersectionObserver(
     const ent = entries[0];
     console.log(ent);
     if (ent.isIntersecting == false) {
-      document.body.classList.add("stickly");
+      document.body.classList.add("sticky");
     }
 
     if (ent.isIntersecting == true) {
-      document.body.classList.remove("stickly");
+      document.body.classList.remove("sticky");
     }
   },
   {
